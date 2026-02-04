@@ -1,0 +1,222 @@
+/* ================= RESET ================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ================= ROOT ================= */
+:root {
+  --bg-main: radial-gradient(circle at top, #7f7cff, #00eaff);
+  --panel: rgba(255, 255, 255, 0.28);
+  --accent: #ff2f92;
+  --accent-2: #ffd60a;
+  --danger: #ff3b3b;
+  --text-dark: #1a1a1a;
+  --text-light: #ffffff;
+}
+
+/* ================= BODY ================= */
+body {
+  min-height: 100vh;
+  font-family: "Poppins", sans-serif;
+  background: var(--bg-main);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-light);
+}
+
+/* ================= GAME CONTAINER ================= */
+#game {
+  width: min(92vw, 820px);
+  height: min(62vh, 450px);
+  background: var(--panel);
+  backdrop-filter: blur(18px);
+  border-radius: 24px;
+  position: relative;
+  overflow: hidden;
+  box-shadow:
+    0 25px 60px rgba(0,0,0,0.25),
+    inset 0 0 0 2px rgba(255,255,255,0.25);
+}
+
+/* ================= START SCREEN ================= */
+.start-screen {
+  position: absolute;
+  inset: 0;
+  z-index: 50;
+  background: rgba(255,255,255,0.95);
+  color: var(--text-dark);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 26px;
+}
+
+.start-screen h2 {
+  font-size: clamp(2.2rem, 6vw, 3rem);
+  letter-spacing: 3px;
+  color: var(--accent);
+  margin-bottom: 14px;
+}
+
+.start-screen p {
+  font-size: 1.05rem;
+  line-height: 1.9;
+  max-width: 420px;
+  background: rgba(0,0,0,0.06);
+  padding: 18px 20px;
+  border-radius: 18px;
+}
+
+.start-screen strong {
+  margin-top: 24px;
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+  color: var(--accent);
+}
+
+/* ================= INSTRUCTIONS (FALLBACK) ================= */
+#instructions {
+  position: absolute;
+  inset: 0;
+  z-index: 40;
+  background: rgba(255,255,255,0.9);
+  color: var(--text-dark);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 26px;
+}
+
+/* ================= FAQ ================= */
+#faqBtn {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  z-index: 60;
+  padding: 6px 14px;
+  border-radius: 14px;
+  border: none;
+  background: var(--accent);
+  color: #fff;
+  font-size: 0.8rem;
+  cursor: pointer;
+}
+
+#faqPanel {
+  position: absolute;
+  inset: 0;
+  z-index: 55;
+  background: rgba(255,255,255,0.96);
+  color: var(--text-dark);
+  padding: 26px;
+  overflow-y: auto;
+  display: none;
+}
+
+#faqPanel h2 {
+  text-align: center;
+  margin-bottom: 18px;
+  color: var(--accent);
+}
+
+#faqPanel p {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-bottom: 14px;
+}
+
+#faqPanel span {
+  display: block;
+  margin-top: 20px;
+  font-size: 0.8rem;
+  text-align: center;
+  opacity: 0.6;
+}
+
+/* ================= HUD ================= */
+.hud {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  color: var(--accent-2);
+  font-weight: 600;
+  font-size: 0.9rem;
+  z-index: 10;
+}
+
+/* ================= PLAYER ================= */
+#player {
+  width: 40px;
+  height: 40px;
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  border-radius: 14px;
+  position: absolute;
+  top: 40px;
+  left: 40px;
+  box-shadow:
+    0 8px 20px rgba(0,0,0,0.25),
+    0 0 18px rgba(255,47,146,0.6);
+}
+
+/* ================= ECHO ================= */
+.echo {
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  background: rgba(255,47,146,0.35);
+  border: 2px dashed rgba(255,255,255,0.6);
+  border-radius: 14px;
+  box-shadow: 0 0 14px rgba(255,47,146,0.5);
+}
+
+/* ================= GOAL ================= */
+#goal {
+  position: absolute;
+  right: 40px;
+  bottom: 40px;
+  font-size: 2.2rem;
+  filter: drop-shadow(0 4px 10px rgba(0,0,0,0.35));
+}
+
+/* ================= FOOTER ================= */
+footer {
+  margin-top: 18px;
+  font-size: 0.85rem;
+  opacity: 0.9;
+  color: var(--text-light);
+}
+
+/* ================= MOBILE ================= */
+@media (max-width: 600px) {
+  #player {
+    width: 34px;
+    height: 34px;
+  }
+
+  .echo {
+    width: 34px;
+    height: 34px;
+  }
+
+  #goal {
+    font-size: 1.7rem;
+  }
+
+  footer {
+    font-size: 0.75rem;
+  }
+}
+
+/* ================= ACCESSIBILITY ================= */
+button:focus-visible {
+  outline: 3px solid var(--accent-2);
+  outline-offset: 3px;
+}

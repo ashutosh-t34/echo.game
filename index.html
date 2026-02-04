@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ECHO – A Time Memory Game</title>
+
+  <!-- Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ================= GAME ================= -->
+  <main id="game">
+
+    <!-- Fallback Instructions (JS replaces with start screen) -->
+    
+
+    <!-- FAQ -->
+    <button id="faqBtn">❓ FAQ</button>
+
+    <div id="faqPanel">
+      <h2>How to Play</h2>
+
+      <p><strong>Goal</strong><br>
+      Reach the 🏁 without touching any echo.</p>
+
+      <p><strong>Movement</strong><br>
+      Use Arrow Keys (← ↑ → ↓).</p>
+
+      <p><strong>What is an Echo?</strong><br>
+      An echo repeats what you did a few seconds ago.</p>
+
+      <p><strong>Important Tip</strong><br>
+      Move slowly. Think ahead.</p>
+
+      <span>Click FAQ again to close</span>
+    </div>
+
+    <!-- PLAYER -->
+    <div id="player"></div>
+
+    <!-- GOAL -->
+    <div id="goal">🏁</div>
+
+  </main>
+
+  <!-- ================= FOOTER ================= -->
+  <footer>
+    <p>Made with ❤️ by <strong>Ashutosh Tripathi</strong></p>
+  </footer>
+
+  <!-- ================= SOUNDS ================= -->
+  <audio id="calmSound" src="sounds/calm.mp3" loop></audio>
+  <audio id="fearSound" src="sounds/fear.mp3"></audio>
+  <audio id="jumpSound" src="sounds/jump.mp3"></audio>
+
+  <!-- ================= JS ================= -->
+  <script src="script.js"></script>
+
+  <!-- ================= FAQ TOGGLE ================= -->
+  <script>
+    const faqBtn = document.getElementById("faqBtn");
+    const faqPanel = document.getElementById("faqPanel");
+
+    faqBtn.addEventListener("click", () => {
+      faqPanel.style.display =
+        faqPanel.style.display === "block" ? "none" : "block";
+    });
+  </script>
+
+</body>
+</html>
